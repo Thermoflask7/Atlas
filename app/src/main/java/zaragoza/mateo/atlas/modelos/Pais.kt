@@ -1,6 +1,6 @@
 package zaragoza.mateo.atlas.modelos
 
-data class Pais (
+data class Pais(
     val name: String,
     val alpha3Code: String,
     val translations: Traducciones?,
@@ -10,13 +10,11 @@ data class Pais (
     val population: Long,
     val languages: List<Idioma>?,
     val currencies: List<Moneda>?
-)
-{
+) {
     val nombreEs: String
         get() = translations?.es ?: name
 }
-
-data class Traducciones (val es: String?)
-data class Bandera (val png: String)
-data class Idioma (val name: String)
-data class Moneda (val name: String, val symbol: String?)
+data class Traducciones(val es: String?)
+data class Bandera(val png: String)
+data class Idioma(val name: String)
+data class Moneda(val name: String, val symbol: String?)

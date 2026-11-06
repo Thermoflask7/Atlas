@@ -8,5 +8,6 @@ interface PaisesApi {
 
     @GET("countries")
     suspend fun obtenerPaises(
-        @Query("fields") campos: String): List<Pais>
+        @Query("fields") campos: String
+    ): List<Pais>
 }

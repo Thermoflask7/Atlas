@@ -39,6 +39,6 @@ class PaisesViewModel : ViewModel() {
         return _paises.value.find { it.alpha3Code == codigo }
     }
     companion object {
-        const val CAMPOS = "name;alpha3Code;translations;flags;capital;region;population;languages;currencies"
+        const val CAMPOS = "name,alpha3Code,translations,flags,capital,region,population,languages,currencies"
     }
 }

@@ -1,6 +1,8 @@
 package zaragoza.mateo.atlas.vistas
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -33,12 +35,23 @@ fun PaisCard(pais: Pais, onClick: () -> Unit) {
             modifier = Modifier.padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ){
-            AsyncImage(
-                model = pais.flags.png,
-                contentDescription = "Bandera de ${pais.nombreEs}",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.width(72.dp).height(48.dp)
-            )
+            val flagUrl = pais.flags?.png
+            if (flagUrl != null){
+                AsyncImage(
+                    model = flagUrl,
+                    contentDescription = "Bandera de ${pais.nombreEs}",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.width(72.dp).height(48.dp)
+                )
+            } else{
+                Box(
+                    modifier = Modifier
+                        .width(72.dp)
+                        .height(48.dp)
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                )
+            }
+
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Text(pais.nombreEs, style = MaterialTheme.typography.titleMedium)
